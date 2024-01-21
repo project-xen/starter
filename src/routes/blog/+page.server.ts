@@ -1,14 +1,14 @@
 import { GraphQLClient, gql } from 'graphql-request';
 
 export const load = async () => {
-	const endpoint = import.meta.env.VITE_HYGRAPH_URL;
+	const endpoint = import.meta.env.VITE_HYGRAPH_API;
 	const hygraph = new GraphQLClient(endpoint, {
 		headers: {}
 	});
 
 	const query = gql`
-		query AllPosts {
-			posts(first: 1000) {
+		query GetAllPosts {
+			posts(first: 10000) {
 				title
 				tags
 				slug
